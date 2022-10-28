@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
-
 import java.util.Date;
 
 /**
@@ -45,5 +44,16 @@ public class UserController
         UserDTO userDTO = dozerUtils.map(userEntity, UserDTO.class);
         log.info(userDTO.toString());
         return userDTO;
+    }
+
+    @GetMapping("test2")
+    public UserEntity test2()
+    {
+        log.info("test2");
+        UserDTO userDTO = new UserDTO("1234", "张三", 13, "中国", "2011-07-23");
+        log.info(userDTO.toString());
+        UserEntity userEntity = dozerUtils.map(userDTO, UserEntity.class);
+        log.info(userEntity.toString());
+        return userEntity;
     }
 }
