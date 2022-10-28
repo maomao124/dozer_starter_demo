@@ -6,8 +6,8 @@
     <!--描述两个类中属性的对应关系，对于两个类中同名的属性可以不映射-->
 
     <mapping date-format="yyyy-MM-dd">
-        <class-a>mao.dozer_demo.entity.UserEntity</class-a>
-        <class-b>mao.dozer_demo.entity.UserDTO</class-b>
+        <class-a>mao.usestarter.entity.UserEntity</class-a>
+        <class-b>mao.usestarter.entity.UserDTO</class-b>
 
         <field>
             <a>id</a>
@@ -25,8 +25,8 @@
     </mapping>
 
     <mapping date-format="yyyy-MM-dd" map-id="user">
-        <class-a>mao.dozer_demo.entity.UserEntity</class-a>
-        <class-b>mao.dozer_demo.entity.UserDTO</class-b>
+        <class-a>mao.usestarter.entity.UserEntity</class-a>
+        <class-b>mao.usestarter.entity.UserDTO</class-b>
 
         <field>
             <a>id</a>

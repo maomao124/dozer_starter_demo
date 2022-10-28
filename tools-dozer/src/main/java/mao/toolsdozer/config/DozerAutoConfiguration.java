@@ -5,10 +5,12 @@ import com.github.dozermapper.spring.DozerBeanMapperFactoryBean;
 import mao.toolsdozer.utils.DozerUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
+
 import org.springframework.context.annotation.Configuration;
+
 import org.springframework.core.io.Resource;
+
 
 import java.io.IOException;
 
@@ -28,19 +30,22 @@ import java.io.IOException;
 @Configuration
 public class DozerAutoConfiguration
 {
-    @Bean
-    public DozerBeanMapperFactoryBean dozerMapper(@Value("classpath:dozer/*.xml") Resource[] resources)
+
+    /*public DozerBeanMapperFactoryBean dozerMapper(@Value("classpath:dozer/*.xml") Resource[] resources)
             throws IOException
     {
         DozerBeanMapperFactoryBean dozerBeanMapperFactoryBean = new DozerBeanMapperFactoryBean();
         dozerBeanMapperFactoryBean.setMappingFiles(resources);
         return dozerBeanMapperFactoryBean;
-    }
+    }*/
+
+    @Autowired
+    private Mapper mapper;
 
     @Bean
-    @ConditionalOnMissingBean
-    public DozerUtils getDozerUtils(@Autowired Mapper mapper)
+    public DozerUtils getDozerUtils() throws IOException
     {
         return new DozerUtils(mapper);
     }
+
 }
